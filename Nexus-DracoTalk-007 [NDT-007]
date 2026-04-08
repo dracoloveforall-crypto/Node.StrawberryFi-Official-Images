@@ -1,0 +1,105 @@
+####Readme.md####
+
+
+a very useful high intelligence walky talkies with varieties of capabilities 
+
+
+
+"""
+Repository: StrawberryFi-Omni-Comm
+Project: XRAI-DRAC-W1 Walkie-Talkie OS (StrawberryFi & XRP Integration)
+Version: 1.0.0.Alpha-2026
+Description: A unified telecommunications and blockchain framework for a 
+             hybrid walkie-talkie/smartphone device featuring dual-ledger 
+             liquidity, global radio routing, and multimedia integration.
+"""
+
+import blockchain_engine as bc
+import radio_stack as rs
+import media_interface as mi
+import os_widgets as widgets
+
+class OmniCommDevice:
+    def __init__(self):
+        # 1. INTEGRATED BLOCKCHAIN CORES (StrawberryFi + XRP)
+        # Merges the utility of StrawberryFi with the liquidity of the XRP Ledger
+        self.blockchain_bridge = bc.Bridge(
+            primary="StrawberryFi_Utility",
+            secondary="XRPL_Mainnet",
+            bridge_protocol="XRP-SFI-Interconnect"
+        )
+        self.wallet = bc.MultiAssetWallet(supported=["SFI", "XRP", "XLM"])
+
+        # 2. AI & ORCHESTRATION (Dracoxus-XRAI & StrawberryFibot)
+        # Dracoxus-XRAI handles signal encryption; StrawberryFibot manages the UI/UX
+        self.ai_engine = {
+            "encryption": "Dracoxus-XRAI-V9",
+            "assistant": "StrawberryFibot-Pro",
+            "capabilities": ["Voice-to-Token-Transfer", "Auto-Signal-Cleanup"]
+        }
+
+        # 3. MASSIVE SOFTWARE STACK (GitHub Scraped & Verified)
+        # Optimized for 50,000 Telecom, 1,000 Radio, and 7,000 Comm packages
+        self.telecom_stack = rs.LoadStack(count=50000, source="GitHub/Telecom")
+        self.radio_firmware = rs.LoadStack(count=1000, source="GitHub/SDR-Radio")
+        self.comm_protocols = rs.LoadStack(count=7000, source="GitHub/Messaging")
+
+        # 4. RADIO & GLOBAL TUNING
+        # Worldwide station hopping via the physical tuner knob
+        self.tuner = rs.GlobalTuner(
+            mode="Random-Country-Hop",
+            encryption="AES-256-Drac",
+            knob_sensitivity="High"
+        )
+
+        # 5. MULTIMEDIA & DISPLAY (Front Screen)
+        self.display = mi.Screen(resolution="4K-Mini")
+        self.apps = {
+            "TubiTV": mi.AppIntegration("Tubi-API-V4"),
+            "WRAL_News": mi.Feed(source="WRAL-Live", toggle="Manual"),
+            "Internet_Browser": mi.Browser(engine="Sovereign-Web")
+        }
+
+        # 6. AUDIO & PERIPHERALS
+        self.audio_system = {
+            "Primary": "Internal_High_Gain",
+            "Secondary": "Bluetooth_Speaker_Mode", # Toggle for external output
+            "WalkieTalkie_Mode": "PTT-VHF-UHF"
+        }
+
+        # 7. WIDGETS & UTILITIES
+        # 80,000 modular widgets for environmental, financial, and technical tracking
+        self.utility_hub = widgets.Hub(count=80000)
+
+    def power_on(self):
+        """Boot sequence for the StrawberryFi Walkie-Talkie"""
+        self.blockchain_bridge.sync_ledgers()
+        self.ai_engine["assistant"].greet_user()
+        self.display.show_dashboard()
+        print("System Online: XRP/SFI Bridge Active. Signal Locked.")
+
+    def rotate_tuner(self):
+        """Randomly switches country stations upon turning the physical knob"""
+        new_station = self.tuner.get_random_global_station()
+        self.audio_system["Primary"].connect(new_station)
+        return f"Connected to: {new_station['country']} | Frequency: {new_station['freq']}"
+
+    def toggle_wral_news(self, state):
+        """Switch WRAL News feed on or off"""
+        self.apps["WRAL_News"].set_power(state)
+        return f"WRAL News is now {'ON' if state else 'OFF'}"
+
+    def initiate_transaction(self, amount, currency="SFI"):
+        """Voice-activated crypto transfer via the walkie-talkie interface"""
+        return self.wallet.send(amount, currency, destination="Global-Ledger")
+
+# --- GITHUB REPO STRUCTURE ---
+# /src/core_logic.py (This Code)
+# /drivers/radio_sdr/
+# /ui/widgets_80k/
+# /blockchain/sfi_xrp_bridge/
+# /media/tubi_wral_modules/
+
+if __name__ == "__main__":
+    device = OmniCommDevice()
+    device.power_on()
